@@ -1,0 +1,15 @@
+<body>
+	{{renderPage}}
+</body>
+
+<template name = 'layoutTemplate'>
+	{{> loginButtons}}
+	<h2>the layout template</h2>
+
+	{{> yield}}
+</template>
+
+<template name = 'error'>
+	<h2>error template</h2>
+
+</template>
