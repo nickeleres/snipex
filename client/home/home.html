@@ -1,3 +1,6 @@
 <template name='homeTemplate'>
 	<a id = 'new_post_button' href="{{pathFor 'new_post'}}">post</a>
+	{{#each posts}}
+		{{post_title}}
+	{{/each}}
 </template>

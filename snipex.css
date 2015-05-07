@@ -30,3 +30,8 @@
 	margin-top: 1em;
 	display: inline;
 }
+
+#new_post_creator input#submit_button{
+	float: left;
+	margin-top: 1em;
+}
