@@ -1,1 +1,32 @@
 /* CSS declarations go here */
+
+#layout_header{
+	margin-top: 0.5em;
+}
+
+#layout_by_line{
+	margin-top: -1em;
+}
+
+#new_post_creator{
+	margin-left: 4em;
+}
+
+#new_post_input{
+	margin-bottom: 1em;
+	float: left;
+}
+
+#new_post_textarea{
+	float:left;
+	clear: both;
+}
+
+#tags{
+	clear: both;
+}
+
+.new_post_tag_select{
+	margin-top: 1em;
+	display: inline;
+}

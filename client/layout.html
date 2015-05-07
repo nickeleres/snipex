@@ -3,13 +3,8 @@
 </body>
 
 <template name = 'layoutTemplate'>
-	{{> loginButtons}}
-	<h2>the layout template</h2>
-
+	<div>{{> loginButtons}}</div>
+	<a id = 'home_button' href="{{pathFor 'home'}}"><h1 id='layout_header'>snippetExchange</h1></a>
+	<h2 id='layout_by_line'>valuable answers</h2>
 	{{> yield}}
-</template>
-
-<template name = 'error'>
-	<h2>error template</h2>
-
 </template>
