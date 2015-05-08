@@ -1,0 +1,36 @@
+
+$single_post_margin: 1em;
+
+.single_post{
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	width: 250px;
+	height: 250px;
+	margin: $single_post_margin;
+	padding: 1em;
+	position: relative;
+	float: left;
+
+	.post_title{
+		font-weight: bold;
+		font-size: 16px;
+		margin-bottom: 1em;
+	}
+
+	.post_body{
+
+	}
+
+	.post_tags{
+		position: absolute;
+		bottom: 0px;
+		margin-left: -0.5em;
+	}
+
+	.post_tags li{
+		list-style-type: none;
+		float: left;
+		margin-right: 1em;
+	}
+}

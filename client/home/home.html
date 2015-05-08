@@ -1,6 +1,14 @@
 <template name='homeTemplate'>
-	<a id = 'new_post_button' href="{{pathFor 'new_post'}}">post</a>
+	<a id = 'new_post_button' href="{{pathFor 'new_post'}}">new post</a>
 	{{#each posts}}
-		{{post_title}}
+		<div class='single_post'>
+			<div class='post_title'><a href='{{pathFor 'single_post' _id=this._id}}'>{{post_title}}</a></div>
+			<div class="post_body">{{post_body}}</div>
+			<ul class='post_tags'>
+				<li class='single_tag'>{{tag_1}}</li>
+				<li class='single_tag'>{{tag_2}}</li>
+				<li class='single_tag'>{{tag_3}}</li>
+			</ul>
+		</div>
 	{{/each}}
 </template>
