@@ -1,3 +1,12 @@
+#layout_by_line {
+  margin-top: -1em;
+  float: left;
+  margin-right: 1em; }
+
+#new_post_button {
+  float: right;
+  margin-bottom: 1em; }
+
 .single_post {
   border-style: solid;
   border-color: black;
@@ -21,33 +30,42 @@
     float: left;
     margin-right: 1em; }
 
-#layout_by_line {
-  margin-top: -1em;
-  float: left;
-  margin-right: 1em; }
-
-#new_post_button {
-  float: right;
-  margin-bottom: 1em; }
-
 .post_container {
   margin: 0 auto;
-  display: inline-block;
-  height: 500px; }
-  .post_container .post_tags {
+  display: inline-block; }
+  .post_container .post_tags, .post_container .post_details {
     position: relative;
     padding: 0;
     font-weight: bold; }
-  .post_container .post_tags li {
+  .post_container .post_details {
+    font-weight: normal; }
+  .post_container .post_tags li,
+  .post_container .post_details li {
     list-style-type: none;
     float: left;
     margin-right: 1em; }
   .post_container .post_title {
-    margin: 3em 0 1em 0;
+    margin: 2em 0 0.5em 0;
     font-weight: bold;
-    font-size: 22px; }
+    font-size: 30px; }
   .post_container .post_body {
     margin: 0 auto;
     display: inline-block; }
+
+.hr {
+  margin-top: 3em;
+  clear: both; }
+
+#new_post_header {
+  clear: both; }
+
+.single_post_creator {
+  text-align: center; }
+
+#new_post_value {
+  margin-left: 1em; }
+
+#needed_by {
+  margin-top: 1em; }
 
 /*# sourceMappingURL=styles.css.map */

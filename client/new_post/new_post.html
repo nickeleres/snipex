@@ -1,9 +1,11 @@
 <template name = 'new_post_template'>
 	<div id='new_post_creator'>
-		<h3>new post</h3>
-		<input id='new_post_input' type='text' name='post_title'>
-		<textarea id='new_post_textarea' rows = '4' cols = '50'></textarea>
+		<h3 id='new_post_header'>new post</h3>
+		<input id='new_post_input' type='text' name='post_title' placeholder = 'title'>
+		<input id='new_post_value' type='text' name='post_value' placeholder = 'value'>
+		<textarea id='new_post_textarea' rows = '4' cols = '50' placeholder = 'description'></textarea>
 		<div id = 'tags'>
+			Tags: &nbsp;
 			<select class='new_post_tag_select' id='select_one'>
 				<option>-</option>
 				<option>HTML</option>
@@ -28,6 +30,10 @@
 				<option>Python</option>
 				<option>Graphic</option>
 			</select>
+		</div>
+		<div id='needed_by'>
+			Needed by:
+			<input id='completion_date' type="date" value="post">
 		</div>
 		<input id='submit_button' type="submit" value="post">
 	</div>
