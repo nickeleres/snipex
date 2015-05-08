@@ -21,4 +21,33 @@
     float: left;
     margin-right: 1em; }
 
+#layout_by_line {
+  margin-top: -1em;
+  float: left;
+  margin-right: 1em; }
+
+#new_post_button {
+  float: right;
+  margin-bottom: 1em; }
+
+.post_container {
+  margin: 0 auto;
+  display: inline-block;
+  height: 500px; }
+  .post_container .post_tags {
+    position: relative;
+    padding: 0;
+    font-weight: bold; }
+  .post_container .post_tags li {
+    list-style-type: none;
+    float: left;
+    margin-right: 1em; }
+  .post_container .post_title {
+    margin: 3em 0 1em 0;
+    font-weight: bold;
+    font-size: 22px; }
+  .post_container .post_body {
+    margin: 0 auto;
+    display: inline-block; }
+
 /*# sourceMappingURL=styles.css.map */

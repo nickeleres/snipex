@@ -1,3 +1,18 @@
 <template name='single_post_template'>
-	<h2> single post tempalte</h2>
+	{{#each posts}}
+		{{> single_post}}
+	{{/each}}
+</template>
+
+<template name = 'single_post'>
+	<div class='post_container'>
+		<div class = 'post_title'>{{post_title}}</div>
+		<div class= 'post_body'>{{post_body}}</div>
+		<ul class='post_tags'>
+			<li class='single_tag'>{{tag_1}}</li>
+			<li class='single_tag'>{{tag_2}}</li>
+			<li class='single_tag'>{{tag_3}}</li>
+		</ul>
+	</div>
+	<hr>
 </template>

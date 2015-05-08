@@ -5,7 +5,14 @@ Router.route('single_post', {
 	layoutTemplate: 'layoutTemplate',
 	template: 'single_post_template',
 	waitOn: function(){
+		Session.set('id', this.params._id);
 		return Meteor.subscribe('postsCollection');
 	}
-
 });
+
+Template.single_post_template.helpers({
+	posts: function(){
+		return postsCollection.find({_id: Session.get('id')});
+	}
+})
+
