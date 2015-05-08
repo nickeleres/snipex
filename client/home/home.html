@@ -1,9 +1,11 @@
 <template name='homeTemplate'>
-	{{#each posts}}
-		<div class='single_post'>
-			{{> home_page_post}}
-		</div>
-	{{/each}}
+	<div class="home_container">
+		{{#each posts}}
+			<div class='single_post'>
+				{{> home_page_post}}
+			</div>
+		{{/each}}
+	</div>
 </template>
 
 <template name = 'home_page_post'>

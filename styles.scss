@@ -12,6 +12,7 @@ $single_post_margin: 1em;
 #new_post_button{
 	float: right;
 	margin: -1em 1em 1em 0em;
+	clear: both;
 }
 
 #layout_header_row_2{
@@ -26,11 +27,12 @@ $single_post_margin: 1em;
 	border-color: black;
 	border-width: 2px;
 	width: 250px;
-	height: 250px;
+	height: 180px;
 	margin: $single_post_margin;
 	padding: 1em;
 	position: relative;
 	float: left;
+	clear: right;
 
 	.post_title{
 		font-weight: bold;
@@ -49,6 +51,10 @@ $single_post_margin: 1em;
 		float: left;
 		margin-right: 1em;
 	}
+}
+
+.home_container{
+	text-align: center;
 }
 
 // SINGLE POST
@@ -98,7 +104,7 @@ $single_post_margin: 1em;
 }
 
 .single_post_creator{
-	text-align: center;
+	// text-align: center;
 }
 
 #new_post_value{
