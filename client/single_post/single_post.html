@@ -1,7 +1,10 @@
 <template name='single_post_template'>
-	{{#each posts}}
-		{{> single_post}}
-	{{/each}}
+	<div class="single_post_container">
+		{{#each posts}}
+			{{> single_post}}
+		{{/each}}
+		{{> single_post_messages}}
+	</div>
 </template>
 
 <template name = 'single_post'>
@@ -13,11 +16,19 @@
 			<li class='single_tag'>{{tag_2}}</li>
 			<li class='single_tag'>{{tag_3}}</li>
 		</ul>
-	<hr class='hr'>
+		<hr class='hr'>
 		<ul class='post_details'>
 			<li><u>Posted by:</u> {{owner}}</li>
 			<li><u>Value:</u> {{post_value}}</li>
 			<li><u>Needed by:</u> {{needed_by}}</li>
 		</ul>
+		<hr class='hr'>
+	</div>
+</template>
+
+<template name = 'single_post_messages'>
+	<div class='messages_area'>
+		<textarea id='new_post_textarea' rows = '4' cols = '50' placeholder = 'type message here'></textarea>
+		<input id='submit_button' type="submit" value="post">
 	</div>
 </template>
