@@ -104,11 +104,16 @@ $single_post_margin: 1em;
 }
 
 .single_post_container{
-	text-align: center;
+	margin-left: 6em;
 }
 
 #new_post_textarea{
 	float: none;
+}
+
+.message li{
+	list-style-type: none;
+	text-align: left;
 }
 
 // NEW POST

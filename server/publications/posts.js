@@ -1,5 +1,9 @@
 //server/publications/posts.js
 
 Meteor.publish('posts', function(){
-	return postsCollection.find();
+	if(!this.userId){
+		this.ready();	
+	} else {
+		return postsCollection.find();
+	}
 });

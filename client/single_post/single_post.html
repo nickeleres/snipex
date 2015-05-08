@@ -31,7 +31,10 @@
 		<textarea id='message_textarea' rows = '4' cols = '50' placeholder = 'type message here'></textarea>
 		<input id='submit_message' type="submit" value="post">
 	</div>
-	{{#each messages}}
-		{{content}}
-	{{/each}}
+	<ul class='message'>
+		{{#each messages}}
+			<li>{{content}}</li>
+			<hr>
+		{{/each}}
+	</ul>
 </template>

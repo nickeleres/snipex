@@ -16,13 +16,15 @@ Router.route('single_post', {
 Template.single_post_template.helpers({
 	posts: function(){
 		return postsCollection.find({_id: Session.get('id')});
-	},
+	}
+});
 
+Template.single_post_messages.helpers({
 	messages: function(){
 		// return messagesCollection.find({post_id: Session.get('id')});
 		return messagesCollection.find();
 	}
-});
+})
 
 Template.single_post_template.events({
 	'click #submit_message': function(ev, template){
