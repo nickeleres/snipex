@@ -4,14 +4,18 @@ $single_post_margin: 1em;
 // LAYOUT
 
 #layout_by_line{
-	margin-top: -1em;
 	float: left;
+	margin-top: -1em;
 	margin-right: 1em;
 }
 
 #new_post_button{
 	float: right;
-	margin-bottom: 1em;
+	margin: -1em 1em 1em 0em;
+}
+
+#layout_header_row_2{
+	margin-bottom: 2em
 }
 
 
