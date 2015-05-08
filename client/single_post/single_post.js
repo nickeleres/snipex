@@ -21,8 +21,7 @@ Template.single_post_template.helpers({
 
 Template.single_post_messages.helpers({
 	messages: function(){
-		// return messagesCollection.find({post_id: Session.get('id')});
-		return messagesCollection.find();
+		return messagesCollection.find({post_id: Session.get('id')});
 	}
 })
 

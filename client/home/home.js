@@ -5,7 +5,7 @@ Router.route('home', {
 	layoutTemplate: 'layoutTemplate',
 	template: 'homeTemplate',
 	waitOn: function(){
-		return Meteor.subscribe('postsCollection');
+		return Meteor.subscribe('posts');
 	}
 
 });

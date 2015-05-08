@@ -34,6 +34,8 @@ body {
     list-style-type: none;
     float: left;
     margin-right: 1em; }
+  .single_post #new_post_textarea {
+    float: left; }
 
 .home_container {
   text-align: center; }
@@ -76,9 +78,13 @@ body {
 #new_post_textarea {
   float: none; }
 
+.message {
+  display: inline-block; }
+
 .message li {
   list-style-type: none;
-  text-align: left; }
+  text-align: left;
+  margin-top: 1em; }
 
 #new_post_value {
   margin-left: 1em; }
