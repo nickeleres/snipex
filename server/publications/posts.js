@@ -1,5 +1,5 @@
 //server/publications/posts.js
 
-Meteor.publish('postsCollection', function(){
+Meteor.publish('posts', function(){
 	return postsCollection.find();
 });

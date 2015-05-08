@@ -28,7 +28,10 @@
 
 <template name = 'single_post_messages'>
 	<div class='messages_area'>
-		<textarea id='new_post_textarea' rows = '4' cols = '50' placeholder = 'type message here'></textarea>
-		<input id='submit_button' type="submit" value="post">
+		<textarea id='message_textarea' rows = '4' cols = '50' placeholder = 'type message here'></textarea>
+		<input id='submit_message' type="submit" value="post">
 	</div>
+	{{#each messages}}
+		{{content}}
+	{{/each}}
 </template>
