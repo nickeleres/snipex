@@ -36,7 +36,7 @@ Template.single_post.events({
 	'click #delete_post_button': function(ev){
 		ev.preventDefault();
 		Meteor.call('delete_post_and_messages', Session.get('post_id'));
-		this.render('home');
+		Router.go('/');
 	}
 	
 });
