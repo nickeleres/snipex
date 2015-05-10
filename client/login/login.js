@@ -8,7 +8,10 @@ Router.route('login', {
 		if(Meteor.loggingIn()){
 			var post_visited = Session.get('single_post_not_logged_in');
 			console.log(post_visited);
-			Router.go('/post/' + post_visited);
+			if(post_visited != undefined){
+				Router.go('/post/' + post_visited);
+			}
+			
 		}
 		this.next();
 	}

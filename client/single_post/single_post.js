@@ -61,6 +61,18 @@ Template.single_post.events({
 Template.single_post_messages.helpers({
 	messages: function(){
 		return messagesCollection.find({post_id: Session.get('post_id')});
+	},
+
+	message_poster_by_email: function(){
+		var current_message = messagesCollection.find({_id: this._id}).fetch();
+
+		var message_owner = current_message[0].poster;
+
+		var user = Meteor.users.find({_id: message_owner}).fetch();
+
+		var user_email = user[0].emails[0].address;
+
+		return user_email;
 	}
 })
 

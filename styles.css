@@ -36,6 +36,8 @@ body {
     margin-right: 1em; }
   .single_post #new_post_textarea {
     float: left; }
+  .single_post .post_body {
+    text-align: left; }
 
 .home_container {
   text-align: center; }
