@@ -68,6 +68,11 @@ Template.single_post_template.events({
 	'click #submit_message': function(ev, template){
 		ev.preventDefault();
 
+		if(! Meteor.userId()){
+			Session.set('single_post_not_logged_in', Session.get('post_id'));
+			Router.go('/login');
+		}
+
 		var today = new Date();
 
 		var new_message_data = {
