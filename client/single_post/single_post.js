@@ -50,8 +50,13 @@ Template.single_post.helpers({
 Template.single_post.events({
 	'click #delete_post_button': function(ev){
 		ev.preventDefault();
-		Meteor.call('delete_post_and_messages', Session.get('post_id'));
-		Router.go('/');
+
+		var result = confirm('Do you want to delete your post?');
+
+		if(result){
+			Meteor.call('delete_post_and_messages', Session.get('post_id'));
+			Router.go('/');
+		}
 	}
 	
 });
