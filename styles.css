@@ -46,7 +46,8 @@ body {
   .post_container .post_tags, .post_container .post_details {
     position: relative;
     padding: 0;
-    font-weight: bold; }
+    font-weight: bold;
+    margin-bottom: 3em; }
   .post_container .post_details {
     font-weight: normal; }
   .post_container .post_tags li,
@@ -66,7 +67,6 @@ body {
     text-align: left; }
 
 .hr {
-  margin-top: 3em;
   clear: both; }
 
 .messages_area {
@@ -85,6 +85,14 @@ body {
   list-style-type: none;
   text-align: left;
   margin-top: 1em; }
+
+#message_content {
+  margin-bottom: 0.5em;
+  font-size: 18px; }
+
+#message_details {
+  font-size: 14px;
+  margin-left: 0.5em; }
 
 #new_post_value {
   margin-left: 1em; }

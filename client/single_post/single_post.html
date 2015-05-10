@@ -22,6 +22,9 @@
 			<li><u>Value:</u> {{post_value}}</li>
 			<li><u>Needed by:</u> {{needed_by}}</li>
 		</ul>
+		{{#if isOwner}}
+			<input id='delete_post_button' type="submit" value="delete">
+		{{/if}}
 		<hr class='hr'>
 	</div>
 </template>
@@ -33,7 +36,10 @@
 	</div>
 	<ul class='message'>
 		{{#each messages}}
-			<li>{{content}}</li>
+			<li>
+				<div id='message_content'>{{content}}</div>
+				<div id='message_details'><b>By </b>{{poster}} <b>at </b> {{created}}</div>
+			</li>
 			<hr>
 		{{/each}}
 	</ul>
