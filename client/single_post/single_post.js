@@ -13,18 +13,12 @@ Router.route('single_post', {
 		return [
 			Meteor.subscribe('posts'),
 			Meteor.subscribe('messages', Session.get('post_id')),
-			Meteor.subscribe('users')
+			Meteor.subscribe('users'),
+			Meteor.subscribe('matches')
 		]
 	}
 });
 
-// single_post_template helpers and events
-
-Template.single_post_template.helpers({
-	posts: function(){
-		return postsCollection.find({_id: Session.get('post_id')});
-	}
-});
 
 // single_post helpers and events
 
@@ -61,25 +55,13 @@ Template.single_post.events({
 	
 });
 
-// single_post_messages helpers and events
+// single_post_template helpers and events
 
-Template.single_post_messages.helpers({
-	messages: function(){
-		return messagesCollection.find({post_id: Session.get('post_id')});
-	},
-
-	message_poster_by_email: function(){
-		var current_message = messagesCollection.find({_id: this._id}).fetch();
-
-		var message_owner = current_message[0].poster;
-
-		var user = Meteor.users.find({_id: message_owner}).fetch();
-
-		var user_email = user[0].emails[0].address;
-
-		return user_email;
+Template.single_post_template.helpers({
+	posts: function(){
+		return postsCollection.find({_id: Session.get('post_id')});
 	}
-})
+});
 
 Template.single_post_template.events({
 	'click #submit_message': function(ev, template){
@@ -99,11 +81,45 @@ Template.single_post_template.events({
 			created: today.toDateString()
 		}
 
-		console.log(new_message_data);
-
 		Meteor.call('addMessage', new_message_data);
+	},
+
+	'click #select_contractor': function(ev){
+		ev.preventDefault();
+
+		var post = postsCollection.find({_id: this.post_id}).fetch();
+
+		var post_title = post[0].post_title;
+
+		console.log(post_title);
+
+		var match_data = {
+			post_data: this.post_id,
+			poster_data: Meteor.userId(),
+			contractor_data : this.poster,
+			post_title : post_title
+		}
+
+		Meteor.call('addMatch', match_data);
 	}
 });
 
+// single_post_messages helpers and events
 
+Template.single_post_messages.helpers({
+	messages: function(){
+		return messagesCollection.find({post_id: Session.get('post_id')});
+	},
 
+	message_poster_by_email: function(){
+		var current_message = messagesCollection.find({_id: this._id}).fetch();
+
+		var message_owner = current_message[0].poster;
+
+		var user = Meteor.users.find({_id: message_owner}).fetch();
+
+		var user_email = user[0].emails[0].address;
+
+		return user_email;
+	}
+});
