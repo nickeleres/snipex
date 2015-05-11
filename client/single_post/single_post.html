@@ -31,8 +31,13 @@
 
 <template name = 'single_post_messages'>
 	<div class='messages_area'>
-		<textarea id='message_textarea' rows = '4' cols = '50' placeholder = 'type message here'></textarea>
-		<input id='submit_message' type="submit" value="post">
+		{{#if isClosed}}
+			<h3>This post has been completed</h3>
+		{{/if}}
+		{{#unless isClosed}}
+			<textarea id='message_textarea' rows = '4' cols = '50' placeholder = 'type message here'></textarea>
+			<input id='submit_message' type="submit" value="post">
+		{{/unless}}
 	</div>
 	<ul class='message'>
 		{{#each messages}}

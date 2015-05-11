@@ -124,5 +124,14 @@ Template.single_post_messages.helpers({
 		var user_email = id_to_string(message_owner);
 
 		return user_email;
+	},
+
+	isClosed: function(){
+		var post_has_match = matchesCollection.find({post: Session.get('post_id')}).fetch();
+		if(post_has_match != ''){
+			return true;
+		} else {
+			return false;
+		}
 	}
 });
