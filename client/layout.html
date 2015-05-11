@@ -7,7 +7,10 @@
 	<a id = 'home_button' href="{{pathFor 'home'}}"><h1 id='layout_header'>snippetExchange</h1></a>
 	<div id='layout_header_row_2'>
 		<h2 id='layout_by_line'>valuable answers</h2> 
-		<a id = 'new_post_button' href="{{pathFor 'new_post'}}">new post</a>
+		<div id='sub_nav_bar'>
+			<p id='connections_tab'>connections</p>
+			<a id = 'new_post_button' href="{{pathFor 'new_post'}}">new post</a>
+		</div>
 	</div>
 	{{> yield}}
 </template>
