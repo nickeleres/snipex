@@ -16,6 +16,9 @@ body {
   float: right;
   display: inline-block; }
 
+#sub_nav_bar {
+  float: right; }
+
 .single_post {
   border-style: solid;
   border-color: black;

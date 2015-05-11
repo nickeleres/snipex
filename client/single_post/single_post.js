@@ -19,6 +19,11 @@ Router.route('single_post', {
 	}
 });
 
+function id_to_string(user_id){
+	var user = Meteor.users.find({_id: user_id}).fetch();
+
+	return user_email = user[0].emails[0].address
+}
 
 // single_post helpers and events
 
@@ -96,7 +101,9 @@ Template.single_post_template.events({
 		var match_data = {
 			post_data: this.post_id,
 			poster_data: Meteor.userId(),
+			poster_email: id_to_string(Meteor.userId()),
 			contractor_data : this.poster,
+			contractor_email: id_to_string(this.poster),
 			post_title : post_title
 		}
 
@@ -116,9 +123,11 @@ Template.single_post_messages.helpers({
 
 		var message_owner = current_message[0].poster;
 
-		var user = Meteor.users.find({_id: message_owner}).fetch();
+		// var user = Meteor.users.find({_id: message_owner}).fetch();
 
-		var user_email = user[0].emails[0].address;
+		// var user_email = user[0].emails[0].address;
+
+		var user_email = id_to_string(message_owner);
 
 		return user_email;
 	}
