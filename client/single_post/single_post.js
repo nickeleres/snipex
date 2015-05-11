@@ -43,6 +43,15 @@ Template.single_post.helpers({
 
 		return post_owner_email;
 
+	},
+
+	isClosed: function(){
+		var post_has_match = matchesCollection.find({post: Session.get('post_id')}).fetch();
+		if(post_has_match != ''){
+			return false;
+		} else {
+			return true;
+		}
 	}
 });
 
@@ -56,6 +65,12 @@ Template.single_post.events({
 			Meteor.call('delete_post_and_messages', Session.get('post_id'));
 			Router.go('/');
 		}
+	},
+
+	'click #reopen_post_button': function(ev){
+		ev.preventDefault();
+
+		Meteor.call('removeMatch', Session.get('post_id'));
 	}
 	
 });
@@ -65,6 +80,13 @@ Template.single_post.events({
 Template.single_post_template.helpers({
 	posts: function(){
 		return postsCollection.find({_id: Session.get('post_id')});
+	},
+
+	bidSelected: function(){
+		var match = matchesCollection.find({post: Session.get('post_id')});
+		if(match != ''){
+			return true;
+		}
 	}
 });
 
@@ -126,12 +148,7 @@ Template.single_post_messages.helpers({
 		return user_email;
 	},
 
-	isClosed: function(){
-		var post_has_match = matchesCollection.find({post: Session.get('post_id')}).fetch();
-		if(post_has_match != ''){
-			return true;
-		} else {
-			return false;
-		}
+	selectedMatch: function(){
+		var this_match = matchesCollection.find({post: Session.get('post_id')});
 	}
 });

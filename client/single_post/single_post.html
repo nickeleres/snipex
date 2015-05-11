@@ -3,8 +3,15 @@
 		{{#each posts}}
 			{{> single_post}}
 		{{/each}}
+		{{#if bid_selected}}
+			{{> winning_bid}}	
+		{{/if}}
 		{{> single_post_messages}}
 	</div>
+</template>
+
+<template name = 'winning_bid'>
+	winning bid here
 </template>
 
 <template name = 'single_post'>
@@ -24,6 +31,7 @@
 		</ul>
 		{{#if isOwner}}
 			<input id='delete_post_button' type="submit" value="delete">
+			{{#unless isClosed}}<input id='reopen_post_button' type="submit" value="re-open post">{{/unless}}
 		{{/if}}
 		<hr class='hr'>
 	</div>
@@ -41,9 +49,9 @@
 	</div>
 	<ul class='message'>
 		{{#each messages}}
-			<li>
+			<li class = '{{_id}}'>
 				<div id='message_content'>{{content}}</div>
-				<div id='message_details'><b>By </b>{{message_poster_by_email}} <b>on </b> {{created}} <input id='select_contractor' type="submit" value="select"></div>
+				<div id='message_details'><b>By </b>{{message_poster_by_email}} <b>on </b> {{created}} {{#unless isClosed}}<input id='select_contractor' type="submit" value="select">{{/unless}}</div>
 			</li>
 			<hr>
 		{{/each}}
