@@ -1,0 +1,12 @@
+<template name = 'notifications_template'>
+	<h3>Your activity</h3>
+
+	{{#each matches}}
+		<div class='matches'>
+			{{#if isContractor}} You have been selected for task <b><a href='{{pathFor 'single_post' _id=this.post}}'>{{post_title}}</a></b> {{/if}}
+		</div>
+		<div class='matches'>
+			{{#if isPoster}} You have selected {{contractor_email}} for task <b><a href='{{pathFor 'single_post' _id=this.post}}'>{{post_title}}</a></b> {{/if}}
+		</div>
+	{{/each}}
+</template>

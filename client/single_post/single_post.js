@@ -39,9 +39,9 @@ Template.single_post.helpers({
 
 		var current_post_owner_id = current_post[0].owner;
 
-		var post_owner_user = Meteor.users.find({_id: current_post_owner_id}).fetch();
+		var post_owner_email = id_to_string(current_post_owner_id);
 
-		return post_owner_email = post_owner_user[0].emails[0].address;
+		return post_owner_email;
 
 	}
 });
@@ -96,8 +96,6 @@ Template.single_post_template.events({
 
 		var post_title = post[0].post_title;
 
-		console.log(post_title);
-
 		var match_data = {
 			post_data: this.post_id,
 			poster_data: Meteor.userId(),
@@ -122,10 +120,6 @@ Template.single_post_messages.helpers({
 		var current_message = messagesCollection.find({_id: this._id}).fetch();
 
 		var message_owner = current_message[0].poster;
-
-		// var user = Meteor.users.find({_id: message_owner}).fetch();
-
-		// var user_email = user[0].emails[0].address;
 
 		var user_email = id_to_string(message_owner);
 
