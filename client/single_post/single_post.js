@@ -33,15 +33,15 @@ id_to_username = function(user_id){
 	return user_email = user[0].username
 }
 
-// single_post helpers and events
-
-Template.single_post.helpers({
-	isOwner: function(){
+Handlebars.registerHelper('isOwner', function(){
 		var current_post = postsCollection.find({_id: Session.get('post_id')}).fetch();
 		var current_owner = current_post[0].owner;
 		return current_owner == Meteor.userId();
-	},
+});
 
+// single_post helpers and events
+
+Template.single_post.helpers({
 	posted_by_username: function(){
 		var current_post = postsCollection.find({_id: Session.get('post_id')}).fetch();
 
@@ -119,6 +119,8 @@ Template.single_post_template.events({
 		}
 
 		Meteor.call('addMessage', new_message_data);
+
+		template.$('#message_textarea').val('');
 	},
 
 	'click #select_contractor': function(ev){
