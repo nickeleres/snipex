@@ -120,4 +120,10 @@ body {
 .matches {
   margin-bottom: 1em; }
 
+#user_profile {
+  width: 90%; }
+  #user_profile .user_attributes {
+    position: relative;
+    left: 5%; }
+
 /*# sourceMappingURL=styles.css.map */

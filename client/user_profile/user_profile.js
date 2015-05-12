@@ -4,6 +4,10 @@ Router.route('user_profile', {
 	path: '/user/:_id',
 	layoutTemplate: 'layoutTemplate',
 	template: 'user_profile_template',
+	onBeforeAction: function(){
+		Session.set('user_id', this.params._id);
+		this.next();
+	},
 	waitOn: function(){
 		return [
 			Meteor.subscribe('posts'),
@@ -15,3 +19,13 @@ Router.route('user_profile', {
 		]
 	}
 });
+
+Template.user_profile_template.helpers({
+	userInfo: function(){
+		return Meteor.users.find({_id: Session.get('user_id')});
+	},
+
+	userAsContractor: function(){
+		return postsCollection.find({contractor: Session.get('user_id')});
+	}
+})

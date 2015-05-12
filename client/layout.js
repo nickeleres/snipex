@@ -12,6 +12,10 @@ Template.layoutTemplate.helpers({
 		} else {
 			return false;
 		}
+	},
+
+	currentUser: function(){
+		return Meteor.userId();
 	}
 });
 
