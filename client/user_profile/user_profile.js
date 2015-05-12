@@ -37,9 +37,10 @@ Template.user_profile_template.helpers({
 		if(Session.get('user_id') == Meteor.userId()){
 			return true;
 		}
-	},
+	}
+});
 
-	isGoogle: function(){
+Handlebars.registerHelper('isGoogle', function(){
 		var user = Meteor.users.find({_id: Session.get('user_id')}).fetch();
 
 		if(user[0].profile != undefined){
@@ -47,7 +48,6 @@ Template.user_profile_template.helpers({
 		} else {
 			return false;
 		}
-	}
 });
 
 Template.user_profile_template.events({

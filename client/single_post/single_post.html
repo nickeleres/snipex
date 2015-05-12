@@ -54,7 +54,7 @@
 		{{#each messages}}
 			<li>
 				<div id='message_content'>{{content}}</div>
-				<div id='message_details'><b>By </b><a href="{{pathFor 'user_profile' _id=this.poster}}">{{username}}</a> <b>on </b> {{created}} {{#unless isClosed}}<input id='select_contractor' type="submit" value="select">{{/unless}}</div>
+				<div id='message_details'><b>By </b><a href="{{pathFor 'user_profile' _id=this.poster}}">{{username}}</a> <b>on </b> {{created}} {{#unless isClosed}}{{#if isOwner}}<input id='select_contractor' type="submit" value="select">{{/if}}{{/unless}}</div>
 			</li>
 			<hr>
 		{{/each}}
