@@ -180,12 +180,30 @@ $single_post_margin: 1em;
 
 // USER PROFILE
 
-#user_profile{
+#user_profile_body{
 	width: 90%;
 
-	.user_attributes{
+	#as_contractor{
 		position: relative;
-		left: 5%;
+		float: left;
+		left: 10%;
+
+		.contractor_post{
+		position: relative;
+		left: 25%;
+		}	
+	}
+
+	#as_poster{
+		display: inline-block;
+		float: left;
+		position: relative;
+		left: 40%;
+
+		.poster_post{
+		position: relative;
+		left: 25%;
+		}
 	}
 }
 

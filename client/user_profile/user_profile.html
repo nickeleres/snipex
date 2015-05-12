@@ -2,7 +2,22 @@
 	{{#each userInfo}}
 		<h2>{{username}}'s history</h2>
 	{{/each}}
-	{{#each userAsContractor}}
-		{{post_title}}
-	{{/each}}
+	<div id = 'user_profile_body'>
+		<div id = 'as_contractor'>
+			<h3>Completed</h3>
+			{{#each userAsContractor}}
+				<div class='contractor_post'>
+					<a href="{{pathFor 'single_post' _id=post}}">{{post_title}}</a>
+				</div>
+			{{/each}}
+		</div>
+		<div id = 'as_poster'>
+			<h3>Posted</h3>
+			{{#each userAsPoster}}
+				<div class="poster_post">
+					<a href="{{pathFor 'single_post' _id=post}}">{{post_title}}</a>
+				</div>
+			{{/each}}
+		</div>
+	</div>
 </template>

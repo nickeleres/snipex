@@ -120,10 +120,22 @@ body {
 .matches {
   margin-bottom: 1em; }
 
-#user_profile {
+#user_profile_body {
   width: 90%; }
-  #user_profile .user_attributes {
+  #user_profile_body #as_contractor {
     position: relative;
-    left: 5%; }
+    float: left;
+    left: 10%; }
+    #user_profile_body #as_contractor .contractor_post {
+      position: relative;
+      left: 25%; }
+  #user_profile_body #as_poster {
+    display: inline-block;
+    float: left;
+    position: relative;
+    left: 40%; }
+    #user_profile_body #as_poster .poster_post {
+      position: relative;
+      left: 25%; }
 
 /*# sourceMappingURL=styles.css.map */

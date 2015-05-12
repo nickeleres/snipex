@@ -26,6 +26,10 @@ Template.user_profile_template.helpers({
 	},
 
 	userAsContractor: function(){
-		return postsCollection.find({contractor: Session.get('user_id')});
+		return matchesCollection.find({contractor: Session.get('user_id')});
+	},
+
+	userAsPoster: function(){
+		return matchesCollection.find({poster: Session.get('user_id')});
 	}
-})
+});
