@@ -149,6 +149,19 @@ $single_post_margin: 1em;
 	margin-left: 0.5em;
 }
 
+#winning_message{
+
+	color: blue;
+	
+	#message_content{
+		font-size: 22px;
+	}
+
+	#message_details{
+		font-size: 18px;
+	}
+}
+
 // NEW POST
 
 #new_post_value{

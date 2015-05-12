@@ -3,7 +3,7 @@
 		{{#each posts}}
 			{{> single_post}}
 		{{/each}}
-		{{#if bid_selected}}
+		{{#if bidSelected}}
 			{{> winning_bid}}	
 		{{/if}}
 		{{> single_post_messages}}
@@ -11,7 +11,13 @@
 </template>
 
 <template name = 'winning_bid'>
-	winning bid here
+	<h3>This post has been completed</h3>
+	{{#each winningMessage}}
+		<div id = 'winning_message'>
+			<div id='message_content'>{{content}}</div>
+			<div id='message_details'><b>By </b>{{message_poster_by_email}} <b>on </b> {{created}}</div>
+		</div>
+	{{/each}}
 </template>
 
 <template name = 'single_post'>
@@ -31,7 +37,7 @@
 		</ul>
 		{{#if isOwner}}
 			<input id='delete_post_button' type="submit" value="delete">
-			{{#unless isClosed}}<input id='reopen_post_button' type="submit" value="re-open post">{{/unless}}
+			{{#if isClosed}}<input id='reopen_post_button' type="submit" value="re-open post">{{/if}}
 		{{/if}}
 		<hr class='hr'>
 	</div>
@@ -39,9 +45,6 @@
 
 <template name = 'single_post_messages'>
 	<div class='messages_area'>
-		{{#if isClosed}}
-			<h3>This post has been completed</h3>
-		{{/if}}
 		{{#unless isClosed}}
 			<textarea id='message_textarea' rows = '4' cols = '50' placeholder = 'type message here'></textarea>
 			<input id='submit_message' type="submit" value="post">
@@ -49,7 +52,7 @@
 	</div>
 	<ul class='message'>
 		{{#each messages}}
-			<li class = '{{_id}}'>
+			<li>
 				<div id='message_content'>{{content}}</div>
 				<div id='message_details'><b>By </b>{{message_poster_by_email}} <b>on </b> {{created}} {{#unless isClosed}}<input id='select_contractor' type="submit" value="select">{{/unless}}</div>
 			</li>

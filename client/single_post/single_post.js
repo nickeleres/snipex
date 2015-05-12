@@ -14,7 +14,7 @@ Router.route('single_post', {
 			Meteor.subscribe('posts'),
 			Meteor.subscribe('messages', Session.get('post_id')),
 			Meteor.subscribe('users'),
-			Meteor.subscribe('matches')
+			Meteor.subscribe('matches', Session.get('post_id'))
 		]
 	}
 });
@@ -47,7 +47,7 @@ Template.single_post.helpers({
 
 	isClosed: function(){
 		var post_has_match = matchesCollection.find({post: Session.get('post_id')}).fetch();
-		if(post_has_match != ''){
+		if(post_has_match == ''){
 			return false;
 		} else {
 			return true;
@@ -124,7 +124,8 @@ Template.single_post_template.events({
 			poster_email: id_to_string(Meteor.userId()),
 			contractor_data : this.poster,
 			contractor_email: id_to_string(this.poster),
-			post_title : post_title
+			post_title : post_title,
+			message_id: this._id
 		}
 
 		Meteor.call('addMatch', match_data);
@@ -150,5 +151,40 @@ Template.single_post_messages.helpers({
 
 	selectedMatch: function(){
 		var this_match = matchesCollection.find({post: Session.get('post_id')});
+	},
+
+	isClosed: function(){
+		var post_has_match = matchesCollection.find({post: Session.get('post_id')}).fetch();
+		if(post_has_match == ''){
+			return false;
+		} else {
+			return true;
+		}
+	}
+});
+
+// winning_bid template
+
+Template.winning_bid.helpers({
+	winning_bid: function(){
+		return matchesCollection.find({message_id: message_id});
+	},
+
+	winningMessage: function(){
+		var match = matchesCollection.find({post: Session.get('post_id')}).fetch();
+		var message_id = match[0].message_id;
+		var message = messagesCollection.find({_id: message_id});
+
+		return message;
+	},
+
+	message_poster_by_email: function(){
+		var current_message = messagesCollection.find({_id: this._id}).fetch();
+
+		var message_owner = current_message[0].poster;
+
+		var user_email = id_to_string(message_owner);
+
+		return user_email;
 	}
 });

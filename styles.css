@@ -104,6 +104,13 @@ body {
   font-size: 14px;
   margin-left: 0.5em; }
 
+#winning_message {
+  color: blue; }
+  #winning_message #message_content {
+    font-size: 22px; }
+  #winning_message #message_details {
+    font-size: 18px; }
+
 #new_post_value {
   margin-left: 1em; }
 
