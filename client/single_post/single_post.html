@@ -36,7 +36,7 @@
 			<li><u>Needed by:</u> {{needed_by}}</li>
 		</ul>
 		{{#if isOwner}}
-			<input id='delete_post_button' type="submit" value="delete">
+			{{#unless isClosed}}<input id='delete_post_button' type="submit" value="delete">{{/unless}}
 			{{#if isClosed}}<input id='reopen_post_button' type="submit" value="re-open post">{{/if}}
 		{{/if}}
 		<hr class='hr'>

@@ -126,6 +126,8 @@ Template.single_post_template.events({
 
 		var post_title = post[0].post_title;
 
+		var today = Date();
+
 		var match_data = {
 			post_data: this.post_id,
 			poster_data: Meteor.userId(),
@@ -133,7 +135,8 @@ Template.single_post_template.events({
 			contractor_data : this.poster,
 			contractor_email: id_to_string(this.poster),
 			post_title : post_title,
-			message_id: this._id
+			message_id: this._id,
+			date_matched: today
 		}
 
 		Meteor.call('addMatch', match_data);

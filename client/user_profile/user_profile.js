@@ -26,10 +26,10 @@ Template.user_profile_template.helpers({
 	},
 
 	userAsContractor: function(){
-		return matchesCollection.find({contractor: Session.get('user_id')});
+		return matchesCollection.find({contractor: Session.get('user_id')}, {sort: {date_matched: -1}});
 	},
 
 	userAsPoster: function(){
-		return matchesCollection.find({poster: Session.get('user_id')});
+		return postsCollection.find({owner: Session.get('user_id')}, {sort: {date_created: -1}});
 	}
 });

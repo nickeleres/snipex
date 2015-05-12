@@ -15,7 +15,7 @@
 			<h3>Posted</h3>
 			{{#each userAsPoster}}
 				<div class="poster_post">
-					<a href="{{pathFor 'single_post' _id=post}}">{{post_title}}</a>
+					<a href="{{pathFor 'single_post' _id=this._id}}">{{post_title}}</a>
 				</div>
 			{{/each}}
 		</div>
