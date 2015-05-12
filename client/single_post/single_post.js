@@ -21,10 +21,16 @@ Router.route('single_post', {
 	}
 });
 
-function id_to_string(user_id){
+id_to_string = function(user_id){
 	var user = Meteor.users.find({_id: user_id}).fetch();
 
 	return user_email = user[0].emails[0].address
+}
+
+id_to_username = function(user_id){
+	var user = Meteor.users.find({_id: user_id}).fetch();	
+
+	return user_email = user[0].username
 }
 
 // single_post helpers and events
@@ -36,14 +42,14 @@ Template.single_post.helpers({
 		return current_owner == Meteor.userId();
 	},
 
-	posted_by_name: function(){
+	posted_by_username: function(){
 		var current_post = postsCollection.find({_id: Session.get('post_id')}).fetch();
 
 		var current_post_owner_id = current_post[0].owner;
 
-		var post_owner_email = id_to_string(current_post_owner_id);
+		var post_owner_username = id_to_username(current_post_owner_id);
 
-		return post_owner_email;
+		return post_owner_username;
 
 	},
 
@@ -141,14 +147,14 @@ Template.single_post_messages.helpers({
 		return messagesCollection.find({post_id: Session.get('post_id')});
 	},
 
-	message_poster_by_email: function(){
+	username: function(){
 		var current_message = messagesCollection.find({_id: this._id}).fetch();
 
 		var message_owner = current_message[0].poster;
 
-		var user_email = id_to_string(message_owner);
+		var username = id_to_username(message_owner);
 
-		return user_email;
+		return username;
 	},
 
 	selectedMatch: function(){
@@ -182,13 +188,13 @@ Template.winning_bid.helpers({
 		}
 	},
 
-	message_poster_by_email: function(){
+	username: function(){
 		var current_message = messagesCollection.find({_id: this._id}).fetch();
 
 		var message_owner = current_message[0].poster;
 
-		var user_email = id_to_string(message_owner);
+		var username = id_to_username(message_owner);
 
-		return user_email;
+		return username;
 	}
 });
