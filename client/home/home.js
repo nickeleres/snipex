@@ -21,6 +21,6 @@ Router.route('home', {
 
 Template.homeTemplate.helpers({
 	posts: function(){
-		return postsCollection.find();
+		return postsCollection.find({}, {sort: {date_created: -1}});
 	}
 })

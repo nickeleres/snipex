@@ -30,7 +30,8 @@ Template.new_post_template.events({
 			tag_2: template.$('#select_two').val(),
 			tag_3: template.$('#select_three').val(),
 			needed_by_field: template.$('#completion_date').val(),
-			created: today.toDateString()
+			created: today.toDateString(),
+			date_created: today
 		}
 
 		Meteor.call('addPost', new_post_fields);

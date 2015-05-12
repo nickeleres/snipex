@@ -5,7 +5,14 @@ Router.route('notifications', {
 	layoutTemplate: 'layoutTemplate',
 	template: 'notifications_template',
 	waitOn: function(){
-		Meteor.subscribe('matches');
+		return [
+			Meteor.subscribe('posts'),
+			Meteor.subscribe('messages', Session.get('post_id')),
+			Meteor.subscribe('users'),
+			Meteor.subscribe('contractorMatches', Meteor.userId()),
+			Meteor.subscribe('posterMatches', Meteor.userId()),
+			Meteor.subscribe('matches', Session.get('post_id'))
+		]
 	}
 });
 
