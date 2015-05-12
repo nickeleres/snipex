@@ -3,7 +3,17 @@
 Router.route('new_post', {
 	path: '/new_post',
 	layoutTemplate: 'layoutTemplate',
-	template: 'new_post_template'
+	template: 'new_post_template',
+	waitOn: function(){
+		return [
+			Meteor.subscribe('posts'),
+			Meteor.subscribe('messages', Session.get('post_id')),
+			Meteor.subscribe('users'),
+			Meteor.subscribe('contractorMatches', Meteor.userId()),
+			Meteor.subscribe('posterMatches', Meteor.userId()),
+			Meteor.subscribe('matches', Session.get('post_id'))
+		]
+	}
 });
 
 Template.new_post_template.events({
