@@ -14,6 +14,8 @@ Router.route('single_post', {
 			Meteor.subscribe('posts'),
 			Meteor.subscribe('messages', Session.get('post_id')),
 			Meteor.subscribe('users'),
+			Meteor.subscribe('contractorMatches', Meteor.userId()),
+			Meteor.subscribe('posterMatches', Meteor.userId()),
 			Meteor.subscribe('matches', Session.get('post_id'))
 		]
 	}
@@ -171,11 +173,13 @@ Template.winning_bid.helpers({
 	},
 
 	winningMessage: function(){
-		var match = matchesCollection.find({post: Session.get('post_id')}).fetch();
-		var message_id = match[0].message_id;
-		var message = messagesCollection.find({_id: message_id});
+			var match = matchesCollection.find({post: Session.get('post_id')}).fetch();
+		if (match != ''){
+			var message_id = match[0].message_id;
+			var message = messagesCollection.find({_id: message_id});
 
-		return message;
+			return message;
+		}
 	},
 
 	message_poster_by_email: function(){
