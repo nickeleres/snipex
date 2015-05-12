@@ -91,9 +91,11 @@ Template.single_post_template.helpers({
 	},
 
 	bidSelected: function(){
-		var match = matchesCollection.find({post: Session.get('post_id')});
+		var match = matchesCollection.find({post: Session.get('post_id')}).fetch();
 		if(match != ''){
 			return true;
+		} else {
+			return false;
 		}
 	}
 });
