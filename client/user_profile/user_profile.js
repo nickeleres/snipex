@@ -31,5 +31,33 @@ Template.user_profile_template.helpers({
 
 	userAsPoster: function(){
 		return postsCollection.find({owner: Session.get('user_id')}, {sort: {date_created: -1}});
+	},
+
+	isMe: function(){
+		if(Session.get('user_id') == Meteor.userId()){
+			return true;
+		}
 	}
 });
+
+Template.user_profile_template.events({
+	'click #edit_bio_button': function(ev){
+		ev.preventDefault();
+
+		$('#edit_bio').css('display', 'inline-block');
+
+	},
+
+	'click #submit_bio_button': function(ev, template){
+		ev.preventDefault();
+
+		var bio_data = template.$('#update_bio_text').val();
+
+		console.log(bio_data);
+
+		Meteor.call('updateBio', Meteor.userId(), bio_data);
+
+		$('#edit_bio').css('display', 'none');
+
+	}
+})

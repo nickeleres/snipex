@@ -1,7 +1,18 @@
 <template name = 'user_profile_template'>
-	{{#each userInfo}}
-		<h2>{{username}}'s history</h2>
-	{{/each}}
+	<div id='user_header'>
+		{{#each userInfo}}
+			<h2>{{username}}'s history</h2>
+
+			<div id='user_bio'>{{bio}}</div>
+			{{#if isMe}}
+				<input id='edit_bio_button' type="submit" value="edit bio"> 
+				<div id='edit_bio'>
+					<textarea id='update_bio_text' rows = '4' cols = '50' placeholder = 'description'></textarea>
+					<input id='submit_bio_button' type="submit" value="submit changes">
+				</div>
+			{{/if}}
+		{{/each}}
+	</div>
 	<div id = 'user_profile_body'>
 		<div id = 'as_contractor'>
 			<h3>Completed</h3>

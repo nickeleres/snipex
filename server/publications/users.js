@@ -3,5 +3,6 @@
 Meteor.publish('users', function(){
 	return Meteor.users.find({},
 		{fields:
-				{owner: 1, emails: 1}});
+				{owner: 1, emails: 1, bio: 1}});
 });
+

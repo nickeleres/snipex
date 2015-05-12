@@ -208,5 +208,19 @@ $single_post_margin: 1em;
 	}
 }
 
+#edit_bio{
+	display: none;
+}
 
+#edit_bio_button{
+	margin-bottom: 1em;
+}
 
+#user_header{
+	width: 100%;
+
+	#user_bio{
+		position: relative;
+		left: 5%;
+	}
+}
