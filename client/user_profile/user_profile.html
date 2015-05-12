@@ -1,7 +1,7 @@
 <template name = 'user_profile_template'>
 	<div id='user_header'>
 		{{#each userInfo}}
-			<h2>{{username}}'s history</h2>
+			<h2>{{#unless isGoogle}}{{username}}'s{{/unless}} {{#if isGoogle}}{{profile.name}}'s{{/if}} history</h2>
 
 			<div id='user_bio'>{{bio}}</div>
 			{{#if isMe}}
