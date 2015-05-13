@@ -31,7 +31,7 @@
 		</ul>
 		<hr class='hr'>
 		<ul class='post_details'>
-			<li><u>Posted by:</u> <a href="{{pathFor 'user_profile' _id=this.owner}}">{{posted_by_username}}</a></li>
+			<li><u>Posted by:</u> <a href="{{pathFor 'user_profile' _id=this.owner}}">{{posted_by_username}}{{#if isTrusted owner}}[verified]{{/if}}</a></li>
 			<li><u>Value:</u> {{post_value}}</li>
 			<li><u>Needed by:</u> {{needed_by}}</li>
 		</ul>
@@ -54,7 +54,7 @@
 		{{#each messages}}
 			<li>
 				<div id='message_content'>{{content}}</div>
-				<div id='message_details'><b>By </b><a href="{{pathFor 'user_profile' _id=this.poster}}">{{username}}</a> <b>on </b> {{created}} {{#if isOwner}}{{#unless isClosed}}<input id='select_contractor' type="submit" value="select">{{/unless}}{{/if}}</div>
+				<div id='message_details'><b>By </b><a href="{{pathFor 'user_profile' _id=this.poster}}">{{username}}{{#if isTrusted poster}}[verified]{{/if}}</a> <b>on </b> {{created}} {{#if isOwner}}{{#unless isClosed}}<input id='select_contractor' type="submit" value="select">{{/unless}}{{/if}}</div>
 			</li>
 			<hr>
 		{{/each}}
