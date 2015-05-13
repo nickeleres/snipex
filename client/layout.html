@@ -4,14 +4,16 @@
 
 <template name = 'layoutTemplate'>
 	{{> loginButtons}}
+	<a id = 'become_verified_button' href="{{pathFor 'verified'}}">become verified!</a>
+	<a id = 'about_snipex_button' href="{{pathFor 'about'}}">about Snipex</a>
 	<h1 id='layout_header'><a id = 'home_button' href="{{pathFor 'home'}}">snippetExchange</a></h1>
 	<div id='layout_header_row_2'>
 		<h2 id='layout_by_line'>valuable answers</h2> 
 		<div id='sub_nav_bar'>
 			{{#if hasMatches}}
 				<a id = 'notifications_button' href="{{pathFor 'notifications'}}">notifications</a>
-				<a id = 'my_history_button' href="{{pathFor 'user_profile' _id=currentUser}}">my history</a>
 			{{/if}}
+				<a id = 'my_history_button' href="{{pathFor 'user_profile' _id=currentUser}}">my history</a>
 			<a id = 'new_post_button' href="{{pathFor 'new_post'}}">new post</a>
 		</div>
 	</div>

@@ -33,12 +33,6 @@ id_to_username = function(user_id){
 	return user_email = user[0].username
 }
 
-Handlebars.registerHelper('isOwner', function(){
-		var current_post = postsCollection.find({_id: Session.get('post_id')}).fetch();
-		var current_owner = current_post[0].owner;
-		return current_owner == Meteor.userId();
-});
-
 // single_post helpers and events
 
 Template.single_post.helpers({
@@ -140,7 +134,10 @@ Template.single_post_template.events({
 			contractor_email: id_to_string(this.poster),
 			post_title : post_title,
 			message_id: this._id,
-			date_matched: today
+			date_matched: today,
+			tag_1: post[0].tag_1,
+			tag_2: post[0].tag_2,
+			tag_3: post[0].tag_3
 		}
 
 		// var email_body = 'You have been matched on post '
@@ -162,17 +159,17 @@ Template.single_post_template.events({
 
 		'Email the contractor at ' + contractor_email;
 
-		Meteor.call('matchEmail', 
-					poster_email,
-					'nick.bucheleres@gmail.com',
-					'You Have A Snipex Match!',
-					email_to_poster);
+		// Meteor.call('matchEmail', 
+		// 			poster_email,
+		// 			'nick.bucheleres@gmail.com',
+		// 			'You Have A Snipex Match!',
+		// 			email_to_poster);
 
-		Meteor.call('matchEmail', 
-					contractor_email,
-					'nick.bucheleres@gmail.com',
-					'You Have A Snipex Match!',
-					email_to_contractor);
+		// Meteor.call('matchEmail', 
+		// 			contractor_email,
+		// 			'nick.bucheleres@gmail.com',
+		// 			'You Have A Snipex Match!',
+		// 			email_to_contractor);
 
 		Meteor.call('addMatch', match_data);
 	}

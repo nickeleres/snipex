@@ -20,6 +20,7 @@
 			{{#each userAsContractor}}
 				<div class='contractor_post'>
 					<a href="{{pathFor 'single_post' _id=post}}">{{post_title}}</a>
+					{{tag_1}}/{{tag_2}}/{{tag_3}}
 				</div>
 			{{/each}}
 		</div>
@@ -28,6 +29,7 @@
 			{{#each userAsPoster}}
 				<div class="poster_post">
 					<a href="{{pathFor 'single_post' _id=this._id}}">{{post_title}}</a>
+					{{tag_1}}/{{tag_2}}/{{tag_3}}
 				</div>
 			{{/each}}
 		</div>
