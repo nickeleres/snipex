@@ -33,6 +33,13 @@ id_to_username = function(user_id){
 	return user_email = user[0].username
 }
 
+$(document).keypress(function(e){
+    if (e.which == 13){
+        $("#submit_message").click();
+        return false;
+    }
+});
+
 // single_post helpers and events
 
 Template.single_post.helpers({
@@ -151,13 +158,17 @@ Template.single_post_template.events({
 
 		'http://localhost:4004/post/' + post_info + '. \n' + 
 
-		'Email the poster at ' + poster_email;
+		'Email the poster at ' + poster_email + '\n'
+
+		'By moving forward, you are agreeing to the Snipex Terms & Conditions at http://snipex.com/terms';
 
 		var email_to_contractor = 'Congrats! You have selected a contractor on your post ' + 
 
 		'http://localhost:4004/post/' + post_info + '. \n' + 
 
-		'Email the contractor at ' + contractor_email;
+		'Email the contractor at ' + contractor_email + '\n'
+
+		'By moving forward, you are agreeing to the Snipex Terms & Conditions at http://snipex.com/terms';
 
 		// Meteor.call('matchEmail', 
 		// 			poster_email,

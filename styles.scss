@@ -237,4 +237,15 @@ $single_post_margin: 1em;
 
 #about_container{
 	width: 90%;
+
+	.about_line{
+		position: relative;
+		left: 10%;
+	}
+}
+
+// TERMS
+
+.terms{
+	margin-bottom: 0.5em
 }

@@ -157,5 +157,11 @@ body {
 
 #about_container {
   width: 90%; }
+  #about_container .about_line {
+    position: relative;
+    left: 10%; }
+
+.terms {
+  margin-bottom: 0.5em; }
 
 /*# sourceMappingURL=styles.css.map */
