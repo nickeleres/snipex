@@ -155,4 +155,16 @@ body {
     position: relative;
     left: 5%; }
 
+#about_container {
+  width: 90%; }
+  #about_container #line_1 {
+    position: relative;
+    left: 12%; }
+  #about_container #line_2 {
+    position: relative;
+    left: 12%; }
+  #about_container #line_3 {
+    position: relative;
+    left: 12%; }
+
 /*# sourceMappingURL=styles.css.map */
