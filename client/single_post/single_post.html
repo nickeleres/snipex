@@ -15,7 +15,7 @@
 	{{#each winningMessage}}
 		<div id = 'winning_message'>
 			<div id='message_content'>{{content}}</div>
-			<div id='message_details'><b>By </b><a href="{{pathFor 'user_profile' _id=this.poster}}">{{username}}</a> <b>on </b> {{created}}</div>
+			<div id='message_details'><b>By </b><a href="{{pathFor 'user_profile' _id=this.poster}}">{{username}}{{#if isTrusted this.poster}}[verified]{{/if}}</a> <b>on </b> {{created}}</div>
 		</div>
 	{{/each}}
 </template>
