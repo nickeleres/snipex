@@ -143,6 +143,37 @@ Template.single_post_template.events({
 			date_matched: today
 		}
 
+		// var email_body = 'You have been matched on post '
+		// 			+ 'http://snipex.com/post/' + match_data.post_data; 
+
+		var poster_email = match_data.poster_email;
+		var contractor_email = match_data.contractor_email;
+		var post_info = match_data.post_data;
+
+		var email_to_poster = 'Congrats! You have been matched on post ' + 
+
+		'http://localhost:4004/post/' + post_info + '. \n' + 
+
+		'Email the poster at ' + poster_email;
+
+		var email_to_contractor = 'Congrats! You have selected a contractor on your post ' + 
+
+		'http://localhost:4004/post/' + post_info + '. \n' + 
+
+		'Email the contractor at ' + contractor_email;
+
+		Meteor.call('matchEmail', 
+					poster_email,
+					'nick.bucheleres@gmail.com',
+					'You Have A Snipex Match!',
+					email_to_poster);
+
+		Meteor.call('matchEmail', 
+					contractor_email,
+					'nick.bucheleres@gmail.com',
+					'You Have A Snipex Match!',
+					email_to_contractor);
+
 		Meteor.call('addMatch', match_data);
 	}
 });
