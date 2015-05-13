@@ -219,6 +219,14 @@ $single_post_margin: 1em;
 #user_header{
 	width: 100%;
 
+	#user_header_text{
+		margin-bottom: 0.5em;
+	}
+
+	#verified_status{
+		margin-bottom: 0.5em;
+	}
+
 	#user_bio{
 		position: relative;
 		left: 5%;

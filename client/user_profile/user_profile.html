@@ -1,7 +1,8 @@
 <template name = 'user_profile_template'>
 	<div id='user_header'>
 		{{#each userInfo}}
-			<h2>{{username}}'s history</h2>
+			<h2 id='user_header_text'>{{username}}'s history</h2>
+			{{#if isTrusted _id}}<p id='verified_status'><i>{{username}} is a verified user</i></p>{{/if}}
 
 			<div id='user_bio'>{{bio}}</div>
 			{{#if isMe}}

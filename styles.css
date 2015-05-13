@@ -147,6 +147,10 @@ body {
 
 #user_header {
   width: 100%; }
+  #user_header #user_header_text {
+    margin-bottom: 0.5em; }
+  #user_header #verified_status {
+    margin-bottom: 0.5em; }
   #user_header #user_bio {
     position: relative;
     left: 5%; }
