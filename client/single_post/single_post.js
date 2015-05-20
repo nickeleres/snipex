@@ -119,7 +119,22 @@ Template.single_post_template.events({
 			created: today.toDateString()
 		}
 
-		Meteor.call('addMessage', new_message_data);
+		var user = Meteor.users.find({_id: Meteor.userId()}).fetch();
+
+		var verified_status = user[0].emails[0].verified;
+
+		if (user == ''){
+			alert('you must be looged in to post');
+
+			return false;
+
+		} else if (verified_status == false){
+			alert('you must verify your email address before you can post.  check your inbox.');
+
+			return false;
+		} else {
+			Meteor.call('addMessage', new_message_data);	
+		}
 
 		template.$('#message_textarea').val('');
 	},
@@ -147,40 +162,37 @@ Template.single_post_template.events({
 			tag_3: post[0].tag_3
 		}
 
-		// var email_body = 'You have been matched on post '
-		// 			+ 'http://snipex.com/post/' + match_data.post_data; 
-
 		var poster_email = match_data.poster_email;
 		var contractor_email = match_data.contractor_email;
 		var post_info = match_data.post_data;
 
 		var email_to_poster = 'Congrats! You have been matched on post ' + 
 
-		'http://localhost:4004/post/' + post_info + '. \n' + 
+		'http://snipexchange.com/post/' + post_info + '. \n' + 
 
 		'Email the poster at ' + poster_email + '\n'
 
-		'By moving forward, you are agreeing to the Snipex Terms & Conditions at http://snipex.com/terms';
+		'By moving forward, you are agreeing to the Snipex Terms & Conditions at http://snipexchange.com/terms';
 
 		var email_to_contractor = 'Congrats! You have selected a contractor on your post ' + 
 
-		'http://localhost:4004/post/' + post_info + '. \n' + 
+		'http://snipexchange.com/post/' + post_info + '. \n' + 
 
 		'Email the contractor at ' + contractor_email + '\n'
 
-		'By moving forward, you are agreeing to the Snipex Terms & Conditions at http://snipex.com/terms';
+		'By moving forward, you are agreeing to the Snipex Terms & Conditions at http://snipexchange.com/terms';
 
-		// Meteor.call('matchEmail', 
-		// 			poster_email,
-		// 			'nick.bucheleres@gmail.com',
-		// 			'You Have A Snipex Match!',
-		// 			email_to_poster);
+		Meteor.call('matchEmail', 
+					poster_email,
+					'nick.bucheleres@gmail.com',
+					'You Have A Snipex Match!',
+					email_to_poster);
 
-		// Meteor.call('matchEmail', 
-		// 			contractor_email,
-		// 			'nick.bucheleres@gmail.com',
-		// 			'You Have A Snipex Match!',
-		// 			email_to_contractor);
+		Meteor.call('matchEmail', 
+					contractor_email,
+					'nick.bucheleres@gmail.com',
+					'You Have A Snipex Match!',
+					email_to_contractor);
 
 		Meteor.call('addMatch', match_data);
 	}

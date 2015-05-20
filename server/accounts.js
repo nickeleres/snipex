@@ -40,7 +40,9 @@ Accounts.onCreateUser(function(options, user) {
 
 // Accounts.validateLoginAttempt(function(attempt){
 //   if (attempt.user && attempt.user.emails && !attempt.user.emails[0].verified ) {
-//     console.log('email not verified');
+//     alert('check you email for a link to verify your account');
+
+//     console.log('check your email sukka');
 
 //     return false; // the login is aborted
 //   }

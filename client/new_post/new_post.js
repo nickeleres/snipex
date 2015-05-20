@@ -34,6 +34,24 @@ Template.new_post_template.events({
 			date_created: today
 		}
 
-		Meteor.call('addPost', new_post_fields);
+		var user = Meteor.users.find({_id: Meteor.userId()}).fetch();
+
+		var verified_status = user[0].emails[0].verified;
+
+		if (user == ''){
+			alert('you must be looged in to post');
+
+			return false;
+
+		} else if (verified_status == false){
+			alert('you must verify your email address before you can post.  check your inbox.');
+
+			return false;
+			
+		} else {
+			Meteor.call('addPost', new_post_fields, function(err, id){
+			Router.go('/post/' + id);
+			});
+		}
 	}
 });
