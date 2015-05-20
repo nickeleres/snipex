@@ -10,6 +10,10 @@ body{
 
 // LAYOUT
 
+#layout_header, #layout_header_row_2{
+	opacity: 0.8;
+}
+
 #top_nav{
 	padding: 1%;
 	background-color: #FF6D59;
@@ -105,6 +109,8 @@ body{
 		position: absolute;
 		bottom: 0px;
 		margin-left: -0.5em;
+		opacity: 0.7;
+		margin-bottom: 0em;
 	}
 
 	.post_tags li{
@@ -212,7 +218,7 @@ body{
 
 #winning_message{
 
-	color: blue;
+	color: #FF6D59;
 	
 	#message_content{
 		font-size: 22px;

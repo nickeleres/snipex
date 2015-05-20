@@ -4,6 +4,9 @@
 body {
   padding-bottom: 5%; }
 
+#layout_header, #layout_header_row_2 {
+  opacity: 0.8; }
+
 #top_nav {
   padding: 1%;
   background-color: #FF6D59; }
@@ -78,7 +81,9 @@ body {
   .single_post .post_tags {
     position: absolute;
     bottom: 0px;
-    margin-left: -0.5em; }
+    margin-left: -0.5em;
+    opacity: 0.7;
+    margin-bottom: 0em; }
   .single_post .post_tags li {
     list-style-type: none;
     float: left;
@@ -152,7 +157,7 @@ body {
   font-weight: bold; }
 
 #winning_message {
-  color: blue; }
+  color: #FF6D59; }
   #winning_message #message_content {
     font-size: 22px; }
   #winning_message #message_details {
