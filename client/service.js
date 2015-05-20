@@ -8,12 +8,8 @@ Handlebars.registerHelper('isOwner', function(){
 
 Handlebars.registerHelper('isTrusted', function(user_id){
 		var user = Meteor.users.find({_id: user_id}).fetch();
-
-		console.log(user, 'user');
-		console.log(user[0].trusted);
 		
-		if(user[0].trusted == true){
-			console.log(user[0].trusted, 'user trusted field');
+		if(user[0].trusted = true){
 			return true;
 		} else {
 			false;
