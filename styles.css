@@ -8,11 +8,11 @@
   background-color: #FF6D59;
   border-color: white;
   color: white;
-  padding: 0.2%;
-  display: inline-block; }
+  padding: 0.2%; }
 
 #sub_nav {
-  float: right; }
+  float: right;
+  display: inline; }
 
 .sub_nav_button {
   border-color: #FF6D59;
