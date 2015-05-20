@@ -1,27 +1,20 @@
-<!-- <head>
-	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">
-	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto">
-</head> -->
-
 <body>
 	{{renderPage}}
 </body>
 
 <template name = 'layoutTemplate'>
 	<div id = 'top_nav'>
-		<a class='top_nav_button' id = 'become_verified_button' href="{{pathFor 'verified'}}">becomeVerified!</a>
-		<a class='top_nav_button' id = 'about_snipex_button' href="{{pathFor 'about'}}">aboutSnipex</a>
-		<a class='top_nav_button' id = 'terms_button' href="{{pathFor 'terms'}}">Terms&Conditions</a>
 		{{> loginButtons}}
+		<a class='top_nav_button' id = 'become_verified_button' href="{{pathFor 'verified'}}">Become Verified!</a>
+		<a class='top_nav_button' id = 'about_snipex_button' href="{{pathFor 'about'}}">About Snipex</a>
+		<a class='top_nav_button' id = 'terms_button' href="{{pathFor 'terms'}}">Terms&Conditions</a>
 	</div>
 	<h1 id='layout_header'><a id = 'home_button' href="{{pathFor 'home'}}">snippetExchange</a></h1>
 	<div id='layout_header_row_2'>
 		<h2 id='layout_by_line'>valuable answers</h2> 
 	</div>
 	<div id='sub_nav'>
-		{{#if hasMatches}}
-			<a class='sub_nav_button' id = 'notifications_button' href="{{pathFor 'notifications'}}">notifications</a>
-		{{/if}}
+		<a class='sub_nav_button' id = 'notifications_button' href="{{pathFor 'notifications'}}">notifications</a>
 		<a class='sub_nav_button' id = 'my_history_button' href="{{pathFor 'user_profile' _id=currentUser}}">my history</a>
 		<a class='sub_nav_button' id = 'new_post_button' href="{{pathFor 'new_post'}}">new post</a>
 	</div>

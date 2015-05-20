@@ -1,5 +1,13 @@
 $single_post_margin: 1em;
 
+*{
+	font-family: Lucida Sans Unicode;
+}
+
+body{
+	padding-bottom: 5%;
+}
+
 // LAYOUT
 
 #top_nav{
@@ -16,18 +24,24 @@ $single_post_margin: 1em;
 	padding: 0.2%;
 }
 
-#sub_nav{
-	float: right;
-	display: inline;
-}
-
 .sub_nav_button{
 	border-color: #FF6D59;
 	color: #FF6D59;
 	border-style: solid;
 	border-width: 2px;
-	padding: 1%;
+	padding: 0.2%;
+	float: right;
+	margin-left: 0.4%;
 }
+
+#home_button{
+	text-decoration: none;
+	color: black;
+}
+
+#home_button:hover, #home_button:visited{
+	text-decoration: none;
+} 
 
 .login-link-text{
 	color: white;
@@ -38,8 +52,7 @@ $single_post_margin: 1em;
 }
 
 #login-buttons{
-	margin-top: 0.4%;
-	float: right;
+	margin-top: 0.25%;
 }
 
 .top_nav_button, .login-link-text,
@@ -81,6 +94,11 @@ $single_post_margin: 1em;
 		font-weight: bold;
 		font-size: 16px;
 		margin-bottom: 1em;
+		font-weight: bold;
+	}
+
+	.post_title a{
+		text-decoration: none;
 	}
 
 	.post_tags{
@@ -133,6 +151,10 @@ $single_post_margin: 1em;
 		text-align: center;
 	}
 
+	.post_details li a{
+		text-decoration: none;
+	}
+
 	.post_title{
 	margin: 0 0 0.5em 0;
 	font-weight: bold;
@@ -181,6 +203,11 @@ $single_post_margin: 1em;
 #message_details{
 	font-size: 14px;
 	margin-left: 0.5em;
+}
+
+#message_details a{
+	text-decoration: none;
+	font-weight: bold;
 }
 
 #winning_message{
