@@ -19,3 +19,14 @@ Template.layoutTemplate.helpers({
 	}
 });
 
+$(document).ready(function(){
+
+	$('body').on('click', function(){
+		console.log($('.top_nav_button'));
+		alert(this);
+	});
+
+	$('.top_nav_button').on('click', function(){
+		console.log('top nav button clicked');
+	});
+});
