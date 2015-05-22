@@ -121,22 +121,22 @@ Template.single_post_template.events({
 
 		var user = Meteor.users.find({_id: Meteor.userId()}).fetch();
 
-		var verified_status = user[0].emails[0].verified;
+		if(user[0] !== undefined){
 
-		if (user == ''){
-			alert('you must be looged in to post');
+			var verified_status = user[0].emails[0].verified;
 
-			return false;
+			if (verified_status == false){
 
-		} else if (verified_status == false){
-			alert('you must verify your email address before you can post.  check your inbox.');
+				alert('you must verify your email address before you can post.  check your inbox.');
 
-			return false;
-		} else {
-			Meteor.call('addMessage', new_message_data);	
+				return false;
+			} else {
+				Meteor.call('addMessage', new_message_data);	
+			}
+
+			template.$('#message_textarea').val('');
+
 		}
-
-		template.$('#message_textarea').val('');
 	},
 
 	'click #select_contractor': function(ev){

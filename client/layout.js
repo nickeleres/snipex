@@ -19,14 +19,14 @@ Template.layoutTemplate.helpers({
 	}
 });
 
-$(document).ready(function(){
+Template.layoutTemplate.events({
+	'mouseover .top_nav_button': function(ev, template){
+		ev.preventDefault();
 
-	$('body').on('click', function(){
-		console.log($('.top_nav_button'));
-		alert(this);
-	});
+		console.log(template.$(this));
 
-	$('.top_nav_button').on('click', function(){
-		console.log('top nav button clicked');
-	});
+		$(this).hide();
+
+	}
+
 });

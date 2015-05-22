@@ -47,6 +47,10 @@ body{
 	text-decoration: none;
 } 
 
+#login_layout_background div div a{
+	color: #FF6D59 !important;
+}
+
 .login-link-text{
 	color: white;
 }
@@ -305,8 +309,8 @@ body{
 	width: 90%;
 
 	.about_line{
-		position: relative;
-		left: 10%;
+		// position: relative;
+		// left: 10%;
 	}
 }
 

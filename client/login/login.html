@@ -1,4 +1,14 @@
 <template name = 'login_template'>
 	<h3>please login or create an account</h3>
-	{{> loginButtons}}
+	<div id='login_layout_background'>
+		{{> loginButtons}}
+	</div>
+</template>
+
+<template name = 'loginLayoutTemplate'>
+	<a id = 'home_button' href="{{pathFor 'home'}}"><h1 id='layout_header'>snippetExchange</h1></a>
+	<div id=''>
+		<h2 id='layout_by_line'>valuable answers</h2> 
+	</div>
+	{{> yield}}
 </template>
