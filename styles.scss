@@ -10,13 +10,25 @@ body{
 
 // LAYOUT
 
-#layout_header, #layout_header_row_2{
+#layout_header, #layout_by_line{
 	opacity: 0.7;
 }
 
 #top_nav{
 	padding: 1%;
 	background-color: #FF6D59;
+}
+
+#home_header_text{
+	display: inline-block;
+	width: auto;
+}
+
+#sub_nav{
+	display: inline-block;
+	width: 40%;
+	float: right;
+	margin-top: 4%;
 }
 
 .top_nav_button{
@@ -35,8 +47,8 @@ body{
 	border-style: solid;
 	border-width: 2px;
 	padding: 0.2%;
+	margin-left: 1%;
 	float: right;
-	margin-left: 0.4%;
 }
 
 #home_button{
