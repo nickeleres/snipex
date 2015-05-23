@@ -17,7 +17,8 @@ body {
   background-color: #FF6D59;
   border-color: white;
   color: white;
-  padding: 0.2%; }
+  padding: 0.2%;
+  opacity: 0.6; }
 
 .sub_nav_button {
   border-color: #FF6D59;

@@ -9,3 +9,4 @@ iron:router
 accounts-ui
 accounts-password
 email
+jquery

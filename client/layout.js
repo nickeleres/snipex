@@ -20,12 +20,40 @@ Template.layoutTemplate.helpers({
 });
 
 Template.layoutTemplate.events({
-	'mouseover .top_nav_button': function(ev, template){
+	'mouseenter .top_nav_button': function(ev, template){
 		ev.preventDefault();
 
-		console.log(template.$(this));
+		var $this = $(ev.target);
 
-		$(this).hide();
+		$this.css('opacity', '1');
+
+	},
+
+	'mouseleave .top_nav_button': function(ev, template){
+		ev.preventDefault();
+
+		var $this = $(ev.target);
+
+		$this.css('opacity', '0.6');
+	},
+
+	'mouseenter .sub_nav_button': function(ev, template){
+		ev.preventDefault();
+
+		var $this = $(ev.target);
+
+		$this.css('background-color', '#FF6D59');
+		$this.css('color', 'white');
+
+	},
+
+	'mouseleave .sub_nav_button': function(ev, template){
+		ev.preventDefault();
+
+		var $this = $(ev.target);
+
+		$this.css('background-color', 'white');
+		$this.css('color', '#FF6D59');
 
 	}
 
