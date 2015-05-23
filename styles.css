@@ -213,6 +213,10 @@ body {
 #about_container {
   width: 90%; }
 
+.how_it_works {
+  position: relative;
+  left: 2%; }
+
 .terms {
   margin-bottom: 0.5em; }
 
